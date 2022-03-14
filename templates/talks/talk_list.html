@@ -1,0 +1,147 @@
+{% extends "base22.html" %}
+{% load i18n static avatar_tags crispy_forms_tags %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Submitted Talks  | Pycon Ghana" %}{% endif %}{% endblock %}
+
+
+{% block content %}
+
+<!-- ========== HEADER ========== -->
+{% include '2022/header.html' %}
+<!-- ========== END HEADER ========== -->
+ 
+    <!--================ Breadcrumb ================-->
+    <div class="mad-breadcrumb">
+        <div class="container">
+          <h1 class="mad-page-title mad-title-with-line">{% firstof user.get_short_name user.get_username|capfirst %}'s Talk(s)</h1>
+          <nav class="mad-breadcrumb-path"><span><a href="/">Home</a></span>/<span><a href="/profile">Talks</a></span>/<span>Submitted Talks</span>
+          </nav>
+        </div>
+      </div>
+      <!--================ End of Breadcrumb ================-->
+
+      <div class="mad-content">
+        <div class="container">
+          <div class="row mad-row-size-3">
+            <main class="col-xl-9 col-lg-8">
+                
+                <section class="speakers" id="speakers">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4"> 
+                                <div class="panel panel-warning wow fadeInRight">
+                                        <div class="panel-body">
+                                           <div class="row">
+                                                    <div class="col-md-10">
+                                                        <ul> 
+                                                            <div><b><small class="text-danger">LAST LOGIN</small></b></div>
+                                                            <div><b><small>Date:</small></b>  {{ request.user.last_login.date }}</div>
+                                                            <div><b><small>Time:</small></b>  {{ request.user.last_login.time }}</div>
+                                                             
+                                                            <br> 
+                                                              
+                                                            <p><a href="{% url 'profiles:update' pk=user.id %}"class="btn warn"><i class="fa-light fa-id-card" style="font-size:21px;"></i>&nbsp;&nbsp; Update my Profile</a></p>
+                                                            <p><a href="/accounts/password/change/"class="btn warn"><i class="fa-light fa-lock" style="font-size:21px;"></i>&nbsp;&nbsp; Change Password</a></p>
+                                                            <p><a href="{% url 'talks:talk_list' %}"class="btn warn"><i class="fa-solid fa-podium-star" style="font-size:21px;"></i>&nbsp;&nbsp; My Submitted Talks</a></p>
+                                                            <p><a href="{% url 'talks:submit_talk' %}"class="btn warn"><i class="fa-light fa-podium" style="font-size:21px;"></i>&nbsp;&nbsp; Submit a new Talk</a></p>
+                                                           
+                                                        </ul>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-sm-12 col-md-8"> 
+                            <div class="panel panel-danger wow fadeInLeft">
+                                    <div class="panel-body"> 
+                                    <div class="content-element"> 
+                                    <div class="row">  
+                                            <div class="panel panel-danger wow fadeInLeft">
+                                                <p class="mad-sub-title">Submitted Talks</p>
+                                                <div class="shortcode-html align-items-center">
+                                                    <div class="col-md-12"> 
+                                                            
+                                            {% if submitted_talks %} 
+
+                                                <!--================ Horizontal Table ================-->
+                                                <div class="mad-table-wrap shedule-table">
+                                                    <table class="mad-table--responsive-md">
+                                                      <thead>
+                                                        <tr class="bg">
+                                                          <th><p class="mad-sub-title">Title</p></th>
+                                                          <th><p class="mad-sub-title">Session</p></th>
+                                                          <th><p class="mad-sub-title">Audience</p></th>
+                                                          <th><p class="mad-sub-title">Status</p></th>
+                                                          <th><p class="mad-sub-title">Actions</p></th>
+                                                        </tr>
+                                                      </thead>
+                                                      <tbody>   
+                                                        {% for talk in submitted_talks %}
+                                                        <tr>
+                                                            <td><a href="{% url 'talks:talk_details' pk=talk.pk %}"> <small>{{ talk.title }}</small> </a>
+                                                            </td>
+                                                            <td>
+                                                                <small>{{ talk.talk_type }}</small>
+                                                               
+                                                            </td>
+                                                            <td>
+                                                                <small>{{ talk.intended_audience }}</small>
+                                                            </td>
+                                                            <td>
+                                                                <small>{{ talk.status }}</small>
+                                                            </td>
+                                                            <td> 
+                                                             <a href="{% url 'talks:edit_talk' pk=talk.pk %}" style="font-size:12px" class="btn btn-small btn-style-2">Edit <i class="fa fa-edit"></i></a>  
+                                                            </td>
+                                                        </tr>
+                                                            {% endfor %}
+                                                      </tbody>
+                                                    </table>
+                                                  </div>
+                                                  <!--================ End of Horizontal Table ================--> 
+
+                                                  {% else %}
+                                                  <br>
+                                                  <p> You have not submitted any Talk yet, Please click the button below to create your First Proposal.</p>
+                                                  <br> 
+                                                  <p><a href="{% url 'talks:submit_talk' %}"class="btn warn"><i class="fa-light fa-podium" style="font-size:21px;"></i>&nbsp;&nbsp; Submit a new Talk</a></p>
+                                                     
+                                              {% endif %}
+
+ 
+
+                                                </div>
+                                              </div>
+                                              
+                                                    </div>
+                                 
+                                        </div> 
+                                      </div>
+                           
+                                    </div>
+                
+                            </div>
+                        </div>
+                
+                    </div>
+                    <!-- end .container -->
+                </section>
+              
+            </main>
+            
+<!-- ========== ASIDE ========== -->
+{% include '2022/aside.html' %}
+<!-- ========== ASIDE ========== -->
+
+          </div>
+        </div>
+      </div>
+ 
+
+    <!-- end section.speakers -->
+
+
+
+{% endblock %}
+
+  
+  

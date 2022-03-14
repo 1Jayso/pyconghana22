@@ -1,0 +1,130 @@
+{% load static avatar_tags robohash i18n %}
+{% trans "first" as first %}
+{% trans 'cur_time' as datetime.datetime.now(tz=pytz.timezone(str(settings.TIME_ZONE))) %}
+
+{% url 'home' as home_url %} 
+{% url 'blog' as blog_url %} 
+{% url 'resources' as resources_url %}
+{% url 'lists' as lists_url %} 
+{% url 'gallery' as gallery_url %} 
+{% url 'about' as about_url %} 
+{% url 'coc' as coc_url %} 
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
+ 
+{% block header %}  
+
+    <!--================ Header ================-->
+    <header id="mad-header" class="mad-header mad-header-style-2 mad-header--transparent mad-header--transparent-single">
+        <!--================ Section ================-->
+        <div class="mad-header-section mad-header-section--sticky-xl">
+          <!--================ Column ================-->
+          <div class="mad-header-col">
+            <a href="/" class="mad-ln--independent"><img src="{% static '2022/images/log.png' %}" alt=""></a>
+          </div>
+          <!--================ End of Column ================-->
+          <!--================ Column ================-->
+          <div class="mad-header-col">
+            <div class="mad-header-items">
+              <div>
+                <!--================ Navigation ================-->
+                <nav class="mad-navigation-container">
+                  <ul class="mad-navigation mad-navigation--vertical-sm">
+                    
+                    <li class="menu-item"><a href="/" class="mad-ln--independent">Home</a></li>
+  
+                    <li class="menu-item menu-item-has-children"><a href="/about" class="mad-ln--independent">About</a>
+                        <!--================ Sub Menu ================-->
+                        <ul class="sub-menu">
+                          <li class="menu-item"><a href="/about" class="mad-ln--independent">PyCon Ghana</a>
+                          </li>
+                          <li class="menu-item"><a href="/coc" class="mad-ln--independent">Code of Conduct</a>
+                          </li>
+                          <li class="menu-item"><a href="/accommodation" class="mad-ln--independent">Accommodation</a>
+                          </li>
+                          <li class="menu-item"><a href="/privacy" class="mad-ln--independent">Privacy Policy</a>
+                          </li>
+                          <li class="menu-item"><a href="/faq" class="mad-ln--independent">FAQs</a> 
+                          </li>
+                        </ul>
+                        <!--================ End of Sub Menu ================-->
+                      </li>
+  
+                      <li class="menu-item"><a href="/schedule" class="mad-ln--independent">Schedule</a></li>
+  
+                      <li class="menu-item menu-item-has-children"><a href="/speak" class="mad-ln--independent">Speak at PyCon GH 🇬🇭</a>
+                        <!--================ Sub Menu ================-->
+                        <ul class="sub-menu">
+                          <li class="menu-item"><a href="{% url 'talks:submit_talk' %}" class="mad-ln--independent">PyCon Ghana</a>
+                          </li> 
+                        </ul>
+                        <!--================ End of Sub Menu ================-->
+                      </li>
+  
+                      <li class="menu-item menu-item-has-children"><a href="pages_about.html" class="mad-ln--independent">Sponsors</a>
+                        <!--================ Sub Menu ================-->
+                        <ul class="sub-menu">
+                          <li class="menu-item"><a href="pages_about.html" class="mad-ln--independent">Our Sponsors</a>
+                          </li>
+                          <li class="menu-item"><a href="pages_sponsors.html" class="mad-ln--independent">Support Us</a>
+                          </li> 
+                        </ul>
+                        <!--================ End of Sub Menu ================-->
+                      </li>
+  
+                      <li class="menu-item"><a href="/pycons" class="mad-ln--independent">Previous</a></li>
+   
+  
+                      
+                  </ul>
+                </nav>
+                <!--================ End of Navigation ================-->
+              </div>
+              <div>
+                <button type="button" data-arctic-modal="#search-modal" class="mad-icon"><i class="icon licon-magnifier"></i></button>
+              </div>
+              {% if user.is_authenticated %}
+              <div class="mad-dropdown">
+                <button type="button" class="mad-icon mad-dropdown-title"><i class="fa-solid fa-image-polaroid-user"></i>&nbsp; {% firstof user.get_short_name user.get_username %}</button>
+                <div class="shopping-cart mad-dropdown-element mad-dropdown-element--x-left">
+                  <div class="mad-products mad-products-small">
+
+                    <div class="mad-col">
+                      <!-- Product -->
+                      <div class="mad-product">
+                        <div class="btns"> 
+                          <a href="{% url 'profiles:profile_home' %}" class="btn btn-style-2" style="background-position: 0px 54px;"><i class="fa-solid fa-id-card"></i> My Profile</a>
+                        </div>
+                      </div>  
+                      {% if request.user.is_superuser %}
+                      <br><div class="mad-product">
+                        <div class="btns"> 
+                          <a href="/pyconorganizers/" class="btn btn-style-2" style="background-position: 0px 54px;" target="/"><i class="fas fa-users-crown "></i> Admin Dashboard</a>
+                        </div>
+                      </div>  
+                      {% endif %}
+
+                    </div>
+ 
+                  </div>
+                  <div class="sc-footer"> 
+                    <div class="btns"> 
+                      <a href="{% url 'auth_logout' %}" class="btn btn-small">Log out</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+ 
+              {% else %} 
+        <div><a href="{% url 'auth_login' %}" class="btn btn-big">LOGIN | SIGNUP</a></div>
+              {% endif %}
+            </div>
+          </div>
+          <!--================ End of Column ================-->
+        </div>
+        <!--================ End of Section ================-->
+      </header>
+      <!--================ End of Header ================-->
+
+{% endblock %}

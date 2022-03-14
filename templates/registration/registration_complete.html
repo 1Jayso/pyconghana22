@@ -1,0 +1,61 @@
+{% extends "base22.html" %}
+{% load i18n static crispy_forms_tags %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Log in | Pycon Ghana" %}{% endif %}{% endblock %}
+
+
+{% block content %}
+
+<!-- ========== HEADER ========== -->
+{% include '2022/header.html' %}
+<!-- ========== END HEADER ========== -->
+ 
+    <!--================ Breadcrumb ================-->
+    <div class="mad-breadcrumb">
+        <div class="container">
+          <h1 class="mad-page-title mad-title-with-line"> Activation email sent</h1>
+          <nav class="mad-breadcrumb-path"><span><a href="/">Home</a></span>/<span>Sign up</span>
+          </nav>
+        </div>
+      </div>
+      <!--================ End of Breadcrumb ================-->
+
+      <section class="mad-section size-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="container">
+                    <div class="row mad-row-size-2">
+                      <div class="col-lg-4"> 
+                        <div class="img-with-vector vector-2">
+                            <img src="{% static '2022/images/315x315_img1.png' %}" alt=""> 
+                          </div> 
+                      </div>
+                      <div class="col-lg-6"> 
+                        <div class="align-center">
+                            <h4>Activate your account 🙂</h3>
+                            <p class="text-size-medium">{% trans "Please check your email/spam to complete the registration process." %}</p>
+                              <p>
+                                  <a href="/accounts/activate/resend" ><b>Resend activation code</b></a>
+                              </p>
+                          </div>
+                        
+                      </div> 
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+{% endblock %}
+
+ 
+
+{% comment %}
+**registration/registration_complete.html**
+
+Used after successful completion of the registration form. This
+template has no context variables of its own, and should simply inform
+the user that an email containing account-activation information has
+been sent.
+{% endcomment %}

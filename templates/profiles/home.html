@@ -1,0 +1,218 @@
+{% extends "base22.html" %}
+{% load i18n static avatar_tags crispy_forms_tags %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Profile | Pycon Ghana" %}{% endif %}{% endblock %}
+
+
+{% block content %}
+
+<!-- ========== HEADER ========== -->
+{% include '2022/header.html' %}
+<!-- ========== END HEADER ========== -->
+ 
+    <!--================ Breadcrumb ================-->
+    <div class="mad-breadcrumb">
+        <div class="container">
+          <h1 class="mad-page-title mad-title-with-line">{% firstof user.get_short_name user.get_username|capfirst %}'s Profile</h1>
+          <nav class="mad-breadcrumb-path"><span><a href="/">Home</a></span>/<span>Profile</span>
+          </nav>
+        </div>
+      </div>
+      <!--================ End of Breadcrumb ================-->
+      <div class="mad-content">
+        <div class="container">
+          <div class="row mad-row-size-3">
+            <main class="col-xl-9 col-lg-8">
+                
+                <section class="speakers" id="speakers">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4"> 
+                                <div class="panel panel-warning wow fadeInRight">
+                                        <div class="panel-body">
+                                           <div class="row">
+                                                    <div class="col-md-10">
+                                                        <ul> 
+                                                            <div><b><small class="text-danger">LAST LOGIN</small></b></div>
+                                                            <div><b><small>Date:</small></b>  {{ request.user.last_login.date }}</div>
+                                                            <div><b><small>Time:</small></b>  {{ request.user.last_login.time }}</div>
+
+                                                            {% if user_profile %}  
+                                                            <br> 
+                                                            <p><a href="{% url 'profiles:update' pk=user.id %}"class="btn warn"><i class="fa-light fa-id-card" style="font-size:21px;"></i>&nbsp;&nbsp; Update my Profile</a></p>
+                                                            <p><a href="/accounts/password/change/"class="btn warn"><i class="fa-light fa-lock" style="font-size:21px;"></i>&nbsp;&nbsp; Change Password</a></p>
+                                                            <p><a href="{% url 'talks:talk_list' %}"class="btn warn"><i class="fa-light fa-podium-star" style="font-size:21px;"></i>&nbsp;&nbsp; My Submitted Talks</a></p>
+                                                            <p><a href="{% url 'talks:submit_talk' %}"class="btn warn"><i class="fa-light fa-podium" style="font-size:21px;"></i>&nbsp;&nbsp; Submit a new Talk</a></p>
+                                                            {% else %}
+                                                            
+                                                            {% endif %}<br>
+                                                        </ul>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-sm-12 col-md-8"> 
+                            <div class="panel panel-danger wow fadeInLeft">
+                                    <div class="panel-body">
+                                        {% if user_profile %} 
+                                    <div class="content-element"> 
+                                    <div class="row">
+                                        <div class="row text-center">
+                                            <div class="col-md-6"> 
+                                              <div class="content-element-5">
+                                                {% if request.user|has_avatar %}                     
+                                                <div data-isotope-layout="grid" data-isotope-filter="#portfolio-filter" class="mad-team  mad-grid--isotope">
+                                                    <div class="mad-grid-sizer"></div>
+                                                    <div class="mad-grid-item mad-category-programming">
+                                                        <!--================ Team Member ================--> 
+                                                        <figure class="mad-team-member">
+                                                        {% avatar user 110 class="img-circle img-responsive" id="user_avatar" %}
+                                                        </figure>
+                                                        <!--================ End Of Team Member ================-->
+                                                    </div> 
+                                                </div>      
+                                                {% else %} 
+                                                <div data-isotope-layout="grid" data-isotope-filter="#portfolio-filter" class="mad-team  mad-grid--isotope">
+                                                    <div class="mad-grid-sizer"></div>
+                                                    <div class="mad-grid-item mad-category-programming">
+                                                        <!--================ Team Member ================-->
+                                                        <figure class="mad-team-member">
+                                                        <a class="mad-team-member-photo mad--ln-independent"><img src="/robohash/{% firstof user.get_short_name user.get_username|capfirst %}/?width=110&height=110" alt=""></a>
+                                                       
+                                                    </figure>
+                                                        <!--================ End Of Team Member ================-->
+                                                    </div>
+                                                    
+                                                </div>
+                                                {% endif %}
+                                              </div>
+                                            </div> 
+ 
+ 
+
+                                           </div> 
+                                        
+                                        {% for user_p in user_profile %}
+                                            {% for detail in details %}
+                                           
+                                              <p class="mad-sub-title">Hello, {{ user_p.name }} </p>   
+
+                                                <p>You are welcome to your PyCon Ghana's profile page.</p>
+     
+                                                    <p class="mad-sub-title">Your details</p>
+                                                    <p>The following will be used for your speaker's profile.</p>
+                                                    <div class="row">
+                                                      <div class="col-md-6"> 
+                                                        <div class="content-element-5">
+                                                          <div><b><small>Full Name:</small></b> {{ user_p.surname }}  {{ user_p.name }}</div> 
+                                                          <div><b><small>Contact Number:</small></b> {{ user_p.contact_number }}</div>
+                                                          
+                                                        </div> 
+                                                      </div>
+                                                      <div class="col-md-6"> 
+                                                        <div class="content-element-5">
+                                                            <div><b><small>Email:</small></b> {{ detail.email }}</div>
+                                                            <div><b><small>Location:</small></b>  {{ user_p.city }}, {{ user_p.country }}</div>
+                                                           
+                                                        </div>
+                                                      </div>
+                                                      <ul class="mad-social-icons mad-social-icons--small style-2 mad-list--unstyled">
+                                               
+                                                        {% if user_p.website %}
+                    
+                                                        <li class="list-inline-item">
+                                                            <a href="{{ user_p.website }}" target="/">
+                                                                <i class="fab fa-globe2"></i>
+                                                            </a>
+                                                    
+                                                            </li>
+                                                        {% else %}
+                                                        {% endif %}
+                     
+                                                        {% if user_p.facebook %} 
+                                                        <li >
+                                                            <a href="{{ user_p.facebook }}" target="/">
+                                                              <i class="fab fa-facebook-f"></i>
+                                                            </a>
+                                                          </li>
+        
+                                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                        {% else %}
+                                                        {% endif %}
+                        
+                                                        {% if user_p.twitter_handle %} 
+                                                        <li >
+                                                            <a href="https://www.twitter.com/{{ user_p.twitter_handle }}" target="/">
+                                                              <i class="fab fa-twitter"></i>
+                                                            </a>
+                                                          </li>
+                                                        {% else %}
+                                                        {% endif %}
+                        
+                                                        {% if user_p.github_username %} 
+                    
+                                                            <li class="list-inline-item">
+                                                                <a href="https://www.github.com/{{ user_p.github_username }}" target="/">
+                                                                <i class="fab fa-github"></i>
+                                                                </a>
+                                                            </li>
+                                                        {% else %}
+                                                        {% endif %}
+                        
+                                                        {% if user_p.linkedin %} 
+                                                        <li class="list-inline-item">
+                                                            <a href="{{ user_p.linkedin }}" target="/">
+                                                              <i class="fab fa-linkedin"></i>
+                                                            </a>
+                                                          </li>
+                                                        {% else %}
+                                                        {% endif %} 
+                         
+                    
+                                                        </ul> 
+                                                      <br><div class="caption"> 
+                                                        <b><small>Biography</small></b>
+                                                        <p class="text-center">{{ user_p.bio }}</p>
+                                                    </div>
+ 
+                                                    </div> 
+                                         {% endfor %} 
+                                        </div> 
+                                      </div>
+                         
+                                    {% endfor %}
+                                    {% else %}
+                                    <h5 class="page-title wow fadeInDown">Thanks for Signing up! {% firstof user.get_short_name user.get_username %}</h5>
+                
+                                            <p><br>Please click the button below to create your profile.</p>
+                                            <br>
+                                            <p><a class="btn btn-success" href="{% url 'profiles:create_profile' %}">Create Your Profile Now &raquo;</a></p>
+                                </div>
+                                 {% endif %}
+                                    </div>
+                
+                            </div>
+                        </div>
+                
+                    </div>
+                    <!-- end .container -->
+                </section>
+              
+            </main>
+            
+<!-- ========== ASIDE ========== -->
+{% include '2022/aside.html' %}
+<!-- ========== ASIDE ========== -->
+
+          </div>
+        </div>
+      </div>
+ 
+
+    <!-- end section.speakers -->
+
+
+
+{% endblock %}
+
+

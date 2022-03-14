@@ -1,0 +1,304 @@
+{% extends "base22.html" %}
+{% load i18n static %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "About | Pycon Ghana" %}{% endif %}{% endblock %}
+
+
+{% block content %}
+
+<!-- ========== HEADER ========== -->
+{% include '2022/header.html' %}
+<!-- ========== END HEADER ========== -->
+
+
+  <!--================ Breadcrumb ================-->
+  <div class="mad-breadcrumb">
+    <div class="container">
+      <h1 class="mad-page-title mad-title-with-line">About</h1>
+      <nav class="mad-breadcrumb-path"><span><a href="/">Home</a></span>/<span>About</span>
+      </nav>
+    </div>
+  </div>
+  <!--================ End of Breadcrumb ================-->
+ 
+  <div class="mad-content no-pd">
+    <div class="container">
+      <section class="mad-section size-5">
+        <div class="row align-items-center mad-row-size-2">
+          <div class="col-lg-5">
+            <div class="img-with-vector vector-2">
+              <img src="{% static '2022/images/315x315_img1.png' %}" alt="">
+              <div class="img-inner">
+                <img src="{% static '2022/images/315x315_img1.png' %}" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <article class="text-size-medium">
+              <h3>What Is GDConf?</h3>
+              <p><strong>Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer <br> adipiscing elit.
+                  Mauris fermentum dictum
+                  magna.</strong></p>
+              <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+              urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+              scelerisque eget, malesuada at, neque.
+              Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus
+              orci luctus et ultrices.</p>
+              <p>Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna,endrerit sit amet, tincidunt ac,
+              viverra sed, nulla. Donec porta diam eu massa. Quisque diam lorem, interdum vitae,dapibus ac, scelerisque vitae, pede.
+              Donec eget tellus non erat lacinia fermentum. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum
+              dolor sit amet, consectetuer adipiscing elit.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="mad-counter-section mad-section mad-section--stretched mad-colorizer--scheme-color-2">
+        <!--================ Counters ================-->
+        <div class="mad-counters item-col-4">
+          <div class="mad-col">
+            <div class="mad-counter">
+              <div class="mad-counter-inner">
+                <div class="mad-counter-icon"><img class="svg" src="ewent_svg_icons/group.svg" alt=""></div>
+                <div class="mad-counter-content">
+                  <div aria-labelledby="counter-1" class="mad-counter-count">2000+</div>
+                  <div id="counter-1" class="mad-counter-title">Attendees</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mad-col">
+            <div class="mad-counter">
+              <div class="mad-counter-inner">
+                <div class="mad-counter-icon"><img class="svg" src="ewent_svg_icons/microphone.svg" alt=""></div>
+                <div class="mad-counter-content">
+                  <div aria-labelledby="counter-2" class="mad-counter-count">40+</div>
+                  <div id="counter-2" class="mad-counter-title">Speakers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mad-col">
+            <div class="mad-counter">
+              <div class="mad-counter-inner">
+                <div class="mad-counter-icon"><img class="svg" src="ewent_svg_icons/book.svg" alt=""></div>
+                <div class="mad-counter-content">
+                  <div aria-labelledby="counter-3" class="mad-counter-count">70+</div>
+                  <div id="counter-3" class="mad-counter-title">Hours of content</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mad-col">
+            <div class="mad-counter">
+              <div class="mad-counter-inner">
+                <div class="mad-counter-icon"><img class="svg" src="ewent_svg_icons/globe.svg" alt=""></div>
+                <div class="mad-counter-content">
+                  <div aria-labelledby="counter-4" class="mad-counter-count">50+</div>
+                  <div id="counter-4" class="mad-counter-title">Countries</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--================ End of Counters ================-->
+      </section>
+      <section class="mad-section size-5 mad-section--stretched mad-colorizer--scheme-color-5">
+        <h3 class="mad-section-title align-center">Why Should You Attend?</h3>
+        <!--================ Icons ================-->
+        <div class="mad-icon-boxes item-col-3">
+          <div class="mad-col">
+            <!--================ Icon Box ================-->
+            <article class="mad-icon-box">
+              <i class="mad-icon-box-icon"><img class="svg" src="ewent_svg_icons/networking.svg" alt=""></i>
+              <div class="mad-icon-box-content">
+                <h2 class="mad-icon-box-title">Networking</h2>
+                <p>Vestibulum iaculis lacinia est. Proin dictum elementum velit. Fusce euismod consequat ante. Lorem ipsum dolor
+                  sit amet, consectetuer adipis. Mauris accumsan nulla vel diam. </p>
+              </div>
+            </article>
+            <!--================ End of Icon Box ================-->
+          </div>
+          <div class="mad-col">
+            <!--================ Icon Box ================-->
+            <article class="mad-icon-box">
+              <i class="mad-icon-box-icon"><img class="svg" src="ewent_svg_icons/ebook.svg" alt=""></i>
+              <div class="mad-icon-box-content">
+                <h2 class="mad-icon-box-title">Learning</h2>
+                <p>Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod in, auctor
+                  ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis.</p>
+              </div>
+            </article>
+            <!--================ End of Icon Box ================-->
+          </div>
+          <div class="mad-col">
+            <!--================ Icon Box ================-->
+            <article class="mad-icon-box">
+              <i class="mad-icon-box-icon"><img class="svg" src="ewent_svg_icons/trainer.svg" alt=""></i>
+              <div class="mad-icon-box-content">
+                <h2 class="mad-icon-box-title">Exposure</h2>
+                <p>Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem. Vestibulum sed ante. Donec
+                  sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus error sit. </p>
+              </div>
+            </article>
+            <!--================ End of Icon Box ================-->
+          </div>
+        </div>
+        <!--================ End of Icons ================-->
+        <div class="align-center"><a href="#" class="btn btn-big">Get Your Ticket Now</a></div>
+      </section>
+      <section class="mad-section size-5 mad-section--stretched mad-colorizer--scheme-color-3">
+        <h3 class="align-center">What Our Attendees Are Saying</h3>
+        <!--================ Testimonials ================-->
+        <div class="mad-testimonials">
+          <div class="mad-grid mad-grid--cols-2 owl-carousel with-nav">
+            <div class="mad-grid-item">
+              <!--================ Testimonial ================-->
+              <div class="mad-testimonial">
+                <blockquote aria-labelledby="testimonial-cite-1" class="mad-blockquote--unstyled">Sed laoreet aliquam leo. Ut
+                  tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis.</blockquote>
+                <footer class="mad-author">
+                  <div class="mad-author-photo">
+                    <img src="images/90x90_photo1.jpg" alt="">
+                  </div>
+                  <div class="mad-author-info">
+                    <cite id="testimonial-cite-1">John McCoist</cite>
+                    Creative Director at <a href="#">Swift Creatives</a>
+                  </div>
+                </footer>
+              </div>
+              <!--================ End of Testimonial ================-->
+            </div>
+            <div class="mad-grid-item">
+              <!--================ Testimonial ================-->
+              <div class="mad-testimonial">
+                <blockquote aria-labelledby="testimonial-cite-2" class="mad-blockquote--unstyled">Sed laoreet aliquam leo. Ut
+                  tellus
+                  dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis.</blockquote>
+                <footer class="mad-author">
+                  <div class="mad-author-photo">
+                    <img src="images/90x90_photo2.jpg" alt="">
+                  </div>
+                  <div class="mad-author-info">
+                    <cite id="testimonial-cite-2">Alise Puse</cite>
+                    UX/UI designer at <a href="#">Mobi Lab</a>
+                  </div>
+                </footer>
+              </div>
+              <!--================ End of Testimonial ================-->
+            </div>
+          </div>
+        </div>
+        <!--================ End of Testimonials ================-->
+      </section>
+      <section class="mad-section size-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h3 class="align-center">Frequently Asked Questions</h3>
+            <!--================ Accordion ================-->
+            <dl role="presentation" class="mad-panels mad-panels--accordion">
+              <dt class="mad-panels-title">
+                <button id="panel-1-button" type="button" aria-expanded="false" aria-controls="panel-1"
+                  aria-disabled="false">Aenean auctor wisi et urna?</button>
+              </dt>
+              <dd id="panel-1" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                scelerisque eget, malesuada at, neque. </p>
+              </dd>
+              <dt class="mad-panels-title mad-panels-active">
+                <button id="panel-2-button" type="button" aria-expanded="true" aria-controls="panel-2" aria-disabled="false">Quis autem vel eum iure reing elit?</button>
+              </dt>
+              <dd id="panel-2" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                scelerisque eget, malesuada at, neque.</p>
+              </dd>
+              <dt class="mad-panels-title">
+                <button id="panel-3-button" type="button" aria-expanded="false" aria-controls="panel-3"
+                  aria-disabled="false">Vestibulum ante ipsum primis in faucibus orci luctus?</button>
+              </dt>
+              <dd id="panel-3" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                scelerisque eget, malesuada at, neque.</p>
+              </dd>
+              <dt class="mad-panels-title">
+                <button id="panel-4-button" type="button" aria-expanded="false" aria-controls="panel-4"
+                  aria-disabled="false">Donec porta diam eu massa?</button>
+              </dt>
+              <dd id="panel-4" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                  scelerisque eget, malesuada at, neque.</p>
+              </dd>
+              <dt class="mad-panels-title">
+                <button id="panel-5-button" type="button" aria-expanded="false" aria-controls="panel-5"
+                  aria-disabled="false">In pede mi, aliquet sit amet, euismod in auctor?</button>
+              </dt>
+              <dd id="panel-5" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                  scelerisque eget, malesuada at, neque.</p>
+              </dd>
+              <dt class="mad-panels-title">
+                <button id="panel-6-button" type="button" aria-expanded="false" aria-controls="panel-6"
+                  aria-disabled="false">Fusce euismod consequat ante?</button>
+              </dt>
+              <dd id="panel-6" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                  scelerisque eget, malesuada at, neque.</p>
+              </dd>
+              <dt class="mad-panels-title">
+                <button id="panel-7-button" type="button" aria-expanded="false" aria-controls="panel-7"
+                  aria-disabled="false">Aliquam congue fermentum nisl?</button>
+              </dt>
+              <dd id="panel-7" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                  scelerisque eget, malesuada at, neque.</p>
+              </dd>
+              <dt class="mad-panels-title">
+                <button id="panel-8-button" type="button" aria-expanded="false" aria-controls="panel-8"
+                  aria-disabled="false">Quis autem vel eum iure reprehenderit qui in ea?</button>
+              </dt>
+              <dd id="panel-8" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                  scelerisque eget, malesuada at, neque.</p>
+              </dd>
+              <dt class="mad-panels-title">
+                <button id="panel-9-button" type="button" aria-expanded="false" aria-controls="panel-9"
+                  aria-disabled="false">Mauris accumsan nulla vel diam?</button>
+              </dt>
+              <dd id="panel-9" class="mad-panels-definition">
+                <p>Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et
+                  urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel,
+                  scelerisque eget, malesuada at, neque.</p>
+              </dd>
+            </dl>
+            <!--================ End of Accordion ================-->
+          </div>
+        </div>
+      </section>
+      <article class="mad-cta mad-section mad-section--stretched mad-colorizer--scheme-primary">
+        <div class="row justify-content-center">
+          <div class="col-xl-8">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <h2 class="mad-cta-title mad-title-with-line">Get Your Ticket Now! </h2>
+                <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit</p>
+              </div>
+              <div class="col-lg-4">
+                <div class="align-right">
+                  <a href="#" class="btn btn-big">Buy Ticket</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+{% endblock %}

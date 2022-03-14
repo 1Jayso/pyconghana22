@@ -1,0 +1,118 @@
+{% extends "base22.html" %}
+{% load i18n static avatar_tags crispy_forms_tags %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Create Profile | Pycon Ghana" %}{% endif %}{% endblock %}
+
+
+{% block content %}
+
+<!-- ========== HEADER ========== -->
+{% include '2022/header.html' %}
+<!-- ========== END HEADER ========== -->
+ 
+    <!--================ Breadcrumb ================-->
+    <div class="mad-breadcrumb">
+        <div class="container">
+          <h1 class="mad-page-title mad-title-with-line">Create your Profile {% firstof user.get_short_name user.get_username|capfirst %}</h1>
+          <nav class="mad-breadcrumb-path"><span><a href="/">Home</a></span>/<span>Profile</span>
+          </nav>
+        </div>
+      </div>
+      <!--================ End of Breadcrumb ================-->
+      <div class="mad-content">
+        <div class="container">
+          <div class="row mad-row-size-3">
+            <main class="col-xl-9 col-lg-8">
+                <section class="speakers" id="speakers">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                                <div class="section-title wow fadeInUp">
+                                    <h4>   </h4>
+                                </div>
+                                <div class="panel panel-warning wow fadeInRight">
+                                        <div class="panel-body">
+                                           <div class="row">
+                                                    <div class="col-md-10">
+                                                        <ul>
+                                                            {% if request.user|has_avatar %} 
+                                                                                                            
+                                                            <div data-isotope-layout="grid" data-isotope-filter="#portfolio-filter" class="mad-team  mad-grid--isotope">
+                                                                <div class="mad-grid-sizer"></div>
+                                                                <div class="mad-grid-item mad-category-programming">
+                                                                    <!--================ Team Member ================--> 
+                                                                    <figure class="mad-team-member">
+                                                                    {% avatar user 110 class="img-circle img-responsive" id="user_avatar" %}
+                                                                    </figure>
+                                                                    <!--================ End Of Team Member ================-->
+                                                                </div>
+                                                            </div>      
+                                                            {% else %} 
+                                                            <div data-isotope-layout="grid" data-isotope-filter="#portfolio-filter" class="mad-team  mad-grid--isotope">
+                                                                <div class="mad-grid-sizer"></div>
+                                                                <div class="mad-grid-item mad-category-programming">
+                                                                    <!--================ Team Member ================-->
+                                                                    <figure class="mad-team-member">
+                                                                    <a class="mad-team-member-photo mad--ln-independent"><img src="/robohash/{% firstof user.get_short_name user.get_username|capfirst %}/?width=110&height=110" alt=""></a>
+                                                                    <a href="/avatar/upload" class="btn btn-small btn-style-2">Edit Avatar</a>       
+                                                                </figure>
+                                                                    <!--================ End Of Team Member ================-->
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                
+                                                            {% if user_profile %}
+                                                            <br> 
+                                                            <p><a href="{% url 'profiles:update' pk=user.id %}"class="btn warn">Update my Profile</a></p>
+                                                            <p><a href="/accounts/password/change/"class="btn warn">Change Password</a></p>
+                                                            <p><a href="{% url 'talks:talk_list' %}"class="btn warn">My Submitted Talks</a></p>
+                                                            <p><a href="{% url 'talks:submit_talk' %}"class="btn warn">Submit a new Talk</a></p>
+                                                            {% else %}
+                                                            
+                                                            {% endif %}
+                                                        </ul>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-sm-12 col-md-8"> 
+                            <div class="panel panel-danger wow fadeInLeft">
+
+                                <form action="{% url 'profiles:create_profile' %}" enctype='multipart/form-data' method='Post'>{% csrf_token %}
+                                    
+ 
+<!-- Trigger Modal Component --> 
+
+                                    {{ form | crispy }}
+                                    <br> 
+                                    <div class="d-grid gap-5">
+                                        <button class="btn primaryAction btn-big" style="background-position: 0px 59px;" type="submit" >Create Profile<i class="licon-chevron-right-circle"></i></button>
+                                        
+                                    </div> 
+                                 </form>
+                                    </div>
+                
+                            </div>
+                        </div>
+                
+                    </div>
+                    <!-- end .container -->
+                </section>
+              
+            </main>
+           
+<!-- ========== ASIDE ========== -->
+{% include '2022/aside.html' %}
+<!-- ========== ASIDE ========== -->
+
+          </div>
+        </div>
+      </div>
+ 
+
+    <!-- end section.speakers -->
+ 
+    
+{% endblock %}
+
+ 

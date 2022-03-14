@@ -1,0 +1,64 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+<header id="top" class="sub-header">
+        <div class="container">
+        </div>
+        <!-- end .container -->
+</header>
+
+
+
+<section class="speakers" id="speakers">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                    <div class="section-title wow fadeInUp">
+                        <h4>   </h4>
+                    </div>
+                    <div class="panel panel-warning wow fadeInRight">   
+                            <div class="panel-body">
+                               <div class="row">
+                                        <div class="col-md-10">
+                                            <ul>
+                                                <p><a href="/talks/talk_list" class="btn warn">Back to Submitted Talks</a></p>
+                                            </ul>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-sm-12 col-md-8">
+                 <div class="section-title wow fadeInUp">
+                    <h4>  </h4>
+                 </div>
+                <div class="panel panel-danger wow fadeInLeft">      
+                      <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-10">
+                                                <h6 class="page-title wow fadeInDown">{{ talk.title }} by {{ talk.user.first_name }} {{ talk.user.last_name }}<br></h6>
+                                                 <div class="col-md-14">
+                                                    <br />
+                                                    <p><strong>Talk Type:</strong> {{ talk.talk_type }}</p>
+                                                    <p><strong>Intended Audience</strong>: {{ talk.intended_audience }}</p>
+                                                    <br />
+                                                    <h5>Abstract</h5>
+                                                    <p>{{ talk.abstract }}</p>
+                                                    <br />
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div> 
+                </div>
+            </div>
+
+        </div>
+        <!-- end .container -->
+    </section>
+
+
+    
+
+{% endblock %}

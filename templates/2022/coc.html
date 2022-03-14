@@ -1,0 +1,120 @@
+{% extends "base22.html" %}
+{% load i18n static %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Past PyCons | Pycon Ghana" %}{% endif %}{% endblock %}
+
+
+{% block content %}
+
+<!-- ========== HEADER ========== -->
+{% include '2022/header.html' %}
+<!-- ========== END HEADER ========== -->
+
+
+  <!--================ Breadcrumb ================-->
+  <div class="mad-breadcrumb">
+    <div class="container">
+      <h1 class="mad-page-title mad-title-with-line">Past PyCons</h1>
+      <nav class="mad-breadcrumb-path"><span><a href="/">Home</a></span>/<span>Past PyCons</span>
+      </nav>
+    </div>
+  </div>
+  <!--================ End of Breadcrumb ================-->
+    
+  <div class="mad-content">
+    <div class="container">
+      <!--================ Filter ================-->
+      <nav class="mad-filter-wrap">
+        <ul id="portfolio-filter" class="mad-filter justify-content-center">
+          <li><a href="#" data-filter="*" class="mad-active mad-ln--independent">All</a></li>
+          <li><a href="#" data-filter=".mad-category-local" class="mad-ln--independent">Local</a></li> 
+          <li><a href="#" data-filter=".mad-category-international" class="mad-ln--independent">International</a></li>
+        </ul>
+      </nav>
+      <!--================ End of Filter ================-->
+      <!--================ Gallery ================-->
+      <div data-isotope-layout="masonry" data-isotope-filter="#portfolio-filter" class="mad-entities item-col-3 mad-grid--isotope">
+        <div class="mad-grid-sizer"></div>
+
+
+        <div class="mad-grid-item mad-category-international">
+            <!--================ Entity ================-->
+            <article class="mad-entity">
+              <div class="mad-entity-media">
+                <a href="https://africa.pycon.org/" target="/" class="mad-ln--independent"><img src="{% static '2022/images/pycon2020.png' %}" alt=""></a>
+              </div>
+              <div class="mad-entity-content">
+                <header class="mad-entity-header">
+                  <div class="mad-entity-meta">
+                    <div>
+                      <time datetime="2019-12-23">August 23, 2019</time>
+                    </div> 
+                  </div>
+                  <h6 class="mad-entity-title"><a href="https://africa.pycon.org/" target="/">PyCon Africa 2020</a></h6>
+                </header>
+                <div class="mad-entity-body">
+                  <p>
+                    We organized the first-ever pan-African PyCon at the University of Ghana, Accra from the 6th-10th August 2019.   
+                  </p>
+                </div>
+                <footer class="mad-entity-footer"><a href="https://africa.pycon.org/ target="/"" class="mad-btn--link">Visit site</a></footer>
+              </div>
+            </article>
+            <!--================ End of Entity ================-->
+          </div>
+
+        <div class="mad-grid-item mad-category-international">
+          <!--================ Entity ================-->
+          <article class="mad-entity">
+            <div class="mad-entity-media">
+                <a href="https://bit.ly/PyConGH-PA19" target="/" class="mad-ln--independent"><img src="{% static '2022/images/pycon2019.png' %}" alt=""></a>
+              </div>
+            <div class="mad-entity-content">
+              <header class="mad-entity-header">
+                <div class="mad-entity-meta">
+                  <div>
+                    <time datetime="2019-08-06">August 6 - 10, 2019</time>
+                  </div> 
+                </div>
+                <h6 class="mad-entity-title"><a href="https://bit.ly/PyConGH-PA19" target="/">PyCon Africa 2019</a></h6>
+              </header>
+              <div class="mad-entity-body">
+                <p>
+                    We hosted the first-ever pan-African PyCon at the University of Ghana, Accra from the 6th-10th August 2019.                    
+                </p>
+              </div>
+              <footer class="mad-entity-footer"><a href="https://bit.ly/PyConGH-PA19" target="/" class="mad-btn--link">Visit site</a></footer>
+            </div>
+          </article>
+          <!--================ End of Entity ================--> 
+        </div> 
+
+        <div class="mad-grid-item mad-category-local">
+            <!--================ Entity ================-->
+            <article class="mad-entity">
+              <div class="mad-entity-media">
+                <a href="/2018" target="/" class="mad-ln--independent"><img src="{% static '2022/images/pycon18.png' %}" alt=""></a>
+              </div>
+              <div class="mad-entity-content">
+                <header class="mad-entity-header">
+                  <div class="mad-entity-meta">
+                    <div>
+                      <time datetime="2018-08-10">August 10 - 11, 2018</time>
+                    </div> 
+                  </div>
+                  <h6 class="mad-entity-title"><a href="/2018" target="/">PyCon Ghana 2018</a></h6>
+                </header>
+                <div class="mad-entity-body">
+                  <p>Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque
+                  eget, malesuada at, neque.</p>
+                </div>
+                <footer class="mad-entity-footer"><a href="/2018" target="/" class="mad-btn--link">Visit site</a></footer>
+              </div>
+            </article>
+            <!--================ End of Entity ================-->
+          </div>
+      </div>
+      <!--================ End of Gallery ================-->
+       
+    </div>
+  </div>
+{% endblock %}

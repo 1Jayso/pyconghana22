@@ -1,0 +1,92 @@
+{% load static avatar_tags robohash i18n %}
+{% trans "first" as first %}
+{% trans 'cur_time' as datetime.datetime.now(tz=pytz.timezone(str(settings.TIME_ZONE))) %}
+
+
+{% block aside %}  
+
+
+<aside id="mad-sidebar" class="mad-sidebar mad-sbr col-xl-3 col-lg-4">
+    <!--================ Widget ================-->
+    <div class="mad-widget">
+      <!--================ Search Form ================-->
+      <form role="search" method="get" class="mad-singlefield-form mad-searchform">
+        <input type="text" name="s" placeholder="Search">
+        <button type="submit"><i class="icon licon-magnifier"></i></button>
+      </form>
+      <!--================ End of Search Form ================-->
+    </div>
+    <!--================ End of Widget ================-->
+    <!--================ Widget ================-->
+    <div class="mad-widget"> 
+      <div class="blog-twitter-inner"> 
+        <a class="twitter-timeline"  data-width="420" data-height="500"  href="https://twitter.com/PyconGhana?ref_src=twsrc%5Etfw">Tweets by PyconGhana</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+      </div>
+      </div>
+    <!--================ End of Widget ================-->
+    <!--================ Widget ================-->
+    <div class="mad-widget">
+      <h5 class="mad-widget-title">Products</h5>
+      <div class="mad-products mad-products-small">
+        <div class="mad-col">
+          <!-- Product -->
+          <div class="mad-product">
+            <a href="#" class="mad-product-image">
+              <img src="images/75x75_product1.jpg" alt="">
+            </a>
+            <!-- product-info -->
+            <div class="mad-product-description">
+              <h5 class="mad-product-title"><a href="#">Black T-shirt</a></h5>
+              <span class="mad-product-price">$25.00</span>
+            </div>
+            <!--/ product-info -->
+          </div>
+          <!-- End of Product -->
+        </div>
+        <div class="mad-col">
+          <!-- Product -->
+          <div class="mad-product">
+            <a href="#" class="mad-product-image">
+              <img src="images/75x75_product2.jpg" alt="">
+            </a>
+            <!-- product-info -->
+            <div class="mad-product-description">
+              <h5 class="mad-product-title"><a href="#">Fancy Mug</a></h5>
+              <span class="mad-product-price">$35.00</span>
+            </div>
+            <!--/ product-info -->
+          </div>
+          <!-- End of Product -->
+        </div>
+        <div class="mad-col">
+          <!-- Product -->
+          <div class="mad-product">
+            <a href="#" class="mad-product-image">
+              <img src="images/75x75_product3.jpg" alt="">
+            </a>
+            <!-- product-info -->
+            <div class="mad-product-description">
+              <h5 class="mad-product-title"><a href="#">Warm Hoodie</a></h5>
+              <span class="mad-product-price">$35.00</span>
+            </div>
+            <!--/ product-info -->
+          </div>
+          <!-- End of Product -->
+        </div>
+      </div>
+    </div>
+    <!--================ End of Widget ================-->
+    <!--================ Widget ================-->
+    <div class="mad-widget">
+      <h5 class="mad-widget-title">Like Us on Facebook</h5>
+      <div data-tabs="" data-href="https://www.facebook.com/envato" data-small-header="true"
+        data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" class="fb-page">
+        <blockquote cite="https://www.facebook.com/envato" class="fb-xfbml-parse-ignore"><a
+            href="https://www.facebook.com/envato">Envato</a></blockquote>
+      </div>
+    </div>
+    <!--================ End of Widget ================-->
+  </aside>
+
+
+{% endblock %}
